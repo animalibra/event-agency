@@ -48,7 +48,11 @@
       if (hero) hero.classList.remove('is-changing');
       syncVideo(name);
     };
-    if (!initial && !reduced.matches && hero) hero.classList.add('is-changing');
+    if (!initial && !reduced.matches && hero) {
+      hero.classList.remove('video-ready');
+      heroVideo?.pause();
+      hero.classList.add('is-changing');
+    }
     if (replacement.complete) commit();
     else {
       replacement.onload = commit;
