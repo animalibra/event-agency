@@ -1,44 +1,49 @@
-# Media manifest — ONLY YOU WOULD
+# Visual asset manifest — ONLY YOU WOULD
 
-All visual scenes below are editorial concepts, not photographs of completed client work. The founder portrait is intentionally excluded until a genuine approved photograph is supplied.
+## Current direction
 
-## Shared direction
-Cinematic realism; imperfect human gestures; believable anatomy; tactile grain; deep tonal range; editorial framing; age-diverse casting where people appear. Exclude plastic skin, extra fingers, generic wedding imagery, corporate poses, floating objects, excessive bokeh, fake text, and obvious AI symmetry. Output photography without logos or legible fictional documents.
+The opening **After Dark** frame is intentionally dark and energetic. Every other produced photograph is high-key, sunlit and soft in colour. The sunlit scenes differ in feeling: Stillness is intimate and domestic; Off Script is open and adventurous; the transformation is tactile and nostalgic; the concept study is sociable and playful. Images are AI-generated editorial concepts. They are **not** records of finished client projects. No image represents Natalia Efimova.
 
-## Production assets
+Generated assets on this branch are PNG source posters. They are temporary production media and should be converted to responsive AVIF/WebP derivatives before release. Do not claim the desired performance budget until this is done and measured.
 
-| ID | Scene / world | Creative purpose and subject | Camera / light / color | Composition and motion | Variants / format | Alt or status | Production status |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AD-01 | Hero / After Dark | Private celebration, mixed-age friends caught in an unrepeatable moment | Close 35mm flash, black shadows, crimson practical light | Human movement to right; left text-safe negative space; 6–8 s future loop with quick cuts | 16:9 desktop, 4:5 mobile, 1920×1080 target; AVIF/WebP poster, MP4/WebM future | Conceptual event atmosphere | Planned |
-| ST-01 | Hero / Stillness | Intimate gathering expressed through hands, objects, and a quiet human presence | 50mm lens, candlelight, warm ivory and soft brown | Off-center table and deep foreground; 8–12 s future slow dolly | 16:9 + 4:5; 1920×1080; WebP poster, MP4/WebM future | Conceptual intimate atmosphere | Planned |
-| OS-01 | Hero / Off Script | Friends arriving at an unexpected Spanish landscape destination | Wide 28mm lens, windy blue hour, forest/earth palette | Strong road or architectural line, human scale; 7–10 s future camera travel | 16:9 + 4:5; 1920×1080; WebP poster, MP4/WebM future | Conceptual journey atmosphere | Planned |
-| MM-01 | Transformation | Unmarked handwritten family recipe and worn paper | Macro overhead, gentle daylight, cream/brown | Tight detail for scroll reveal | 3:2 desktop, 4:5 mobile; 1600px width; WebP | Illustrative recipe detail | Planned |
-| MM-02 | Transformation | Believable older and younger hands preparing pasta together | Documentary 50mm, window light, tactile flour | Gesture carries motion across frame | 3:2 and 4:5; WebP | Illustrative cooking ritual | Planned |
-| MM-03 | Transformation | The intimate dinner shaped by the memory | Wide 35mm, candle and window glow | Reveal a table with real human warmth; no staged luxury | 16:9 and 4:5; WebP | Illustrative private dinner concept | Planned |
-| CS-01 | Concept study | Fictional private film celebration, no identifiable client | Cinematic projector light, older guest silhouette | Editorial spread crop; do not imply real project | 3:2 and 4:5; WebP | Clearly labelled concept study | Planned |
-| BM-01 | Behind the magic | Illustrative production desk, marked-up layout and practical objects without legible client data | Overhead, raking warm light, ink and paper | Layered reveal of planning | 3:2; WebP | Illustrative planning materials | Planned |
-| FO-01 | Founder | Genuine portrait of Natalia Efimova supplied and approved by owner | Editorial portrait session | Portrait orientation; natural expression | 4:5, 1200px wide; WebP | Natalia Efimova | Awaiting real photograph |
+| ID | File / crop | Section | Concept and perspective | Light / colour / motion | Status and alt |
+| --- | --- | --- | --- | --- | --- |
+| AD-01 | assets/media/after-dark.png | Hero and After Dark chapter | Mixed-age guests in a candid private celebration; wide editorial scene with room for copy | Direct flash, crimson practical light, rich shadows; brief restrained contrast pulse | Generated concept. Alt: “Conceptual editorial scene of a private celebration after dark.” |
+| ST-01 | assets/media/stillness.png | Stillness world and service pages | Older woman sharing a quiet moment at a family table; close human gesture | Gentle **sunlight**, cream, warm yellow and soft taupe; slow image drift | Generated concept. Alt: “Conceptual sunlit family table with a quiet personal gesture.” |
+| OS-01 | assets/media/off-script.png | Off Script world and experience pages | Age-diverse small group on a path through a Spanish landscape; expansive perspective | Clear **sunlight**, pale sky, muted greens and earth; gentle camera travel | Generated concept. Alt: “Conceptual sunlit journey through the Spanish landscape.” |
+| MM-01 | assets/media/story-atlas.png / upper left | Transformation, memory | Unmarked handwritten recipe in a home kitchen, overhead detail | Warm daylight; static or close crop | Generated illustrative concept; part of atlas. |
+| MM-02 | assets/media/story-atlas.png / upper right | Transformation, gesture | Older and younger hands preparing pasta | Soft morning window light; crossfade or scroll crop | Generated illustrative concept; part of atlas. |
+| MM-03 | assets/media/story-atlas.png / lower left | Transformation and first story | Different generations sharing a relaxed Madrid terrace lunch | Bright soft sunlight; open communal mood | Generated illustrative concept; part of atlas. |
+| CS-01 | assets/media/story-atlas.png / lower right | Second concept study | Film ticket and projector as clues to a personal reunion | Sunlit still life, playful editorial mood | Generated illustrative concept; part of atlas. |
+| BM-01 | CSS/HTML board | Production scene | An illustrative production framework | Warm paper, lines and typography | Implemented as code, explicitly labelled illustrative. |
+| FO-01 | Not supplied | Founder | Genuine approved portrait of Natalia Efimova | Natural editorial portrait | Missing. Typographic placeholder in site. |
 
-## Image-generation prompts
+### Production prompts and exclusions
 
-**AD-01:** A candid private celebration in a Madrid apartment after dark, mixed-age friends in expressive natural motion, a woman in her fifties laughing with a younger friend, single direct on-camera flash, rich crimson practical light, dark cinematic shadows, sophisticated independent fashion magazine photography, 35mm film grain, imperfect human gesture, asymmetrical wide composition with dark negative space on the left for editorial headline, believable Spanish interior, no posing, no writing or logos.
+**AD-01:** A candid private celebration in a Madrid interior after dark, friends of different ages caught in expressive, believable movement, direct camera flash, warm crimson practical light, rich black shadows, independent fashion magazine composition, 35mm grain, asymmetrical frame with left text space. No posed luxury party, no writing, no logo.
 
-**ST-01:** An intimate private gathering suggested by a candlelit table, beautifully worn linen, handmade ceramic plates, an older person's hand passing an heirloom object to a younger person, warm ivory and deep brown shadows, quiet emotional specificity, fine-art editorial photography, 50mm lens, shallow but natural depth of field, asymmetric wide frame with left text-safe dark area, tactile realism, no wedding décor, no writing or logos.
+**ST-01:** An older woman and another adult sharing a small gesture at a lived-in family table, wide sunlit window, warm white linen, tactile ceramics, soft cream and muted yellow, high-key editorial realism, quiet emotional specificity. No wedding styling, no candlelit darkness, no plastic skin.
 
-**OS-01:** A small group of adult friends of different ages arriving on a winding route through a dramatic Spanish landscape, wind moving coats and hair, unusual modernist architecture barely visible in the distance, panoramic 28mm cinematic frame, atmospheric blue-gray dusk and deep forest earth tones, feeling of discovery rather than tourism, human scale against landscape, left side text-safe, no tourist landmarks, no writing or logos.
+**OS-01:** A few adults of different ages moving through a distinctive Spanish landscape on a clear day, expansive 28mm perspective, airy pale blue sky, muted olive hills, sandstone and soft natural colour, sense of discovery and human scale. No tourist landmark, no dramatic storm or blue-hour darkness.
 
-**MM-01:** Macro overhead editorial still life of an old unmarked handwritten family recipe on textured paper with a flour-dusted fingertip at its edge, subtle age and use, natural Spanish kitchen window light, warm cream and brown palette, cinematic realism; any handwriting must be indistinct and unreadable.
+**MM-01–03 + CS-01:** Four carefully separated documentary-style editorial panels: sunlit handwritten family recipe with indistinct text; believable older and younger hands making pasta; relaxed lunch with friends of different generations on a Madrid terrace; film ticket and projector as playful private-story clues. Natural anatomy, specific gestures, soft warm daylight, different camera distances. No legible personal data or invented client material.
 
-**MM-02:** Close documentary photograph of older and younger hands making fresh pasta together in a real home kitchen, flour in motion, believable anatomy and gestures, 50mm film lens, warm side light, tactile texture, no staged faces, no legible labels.
+**Shared negative direction:** No artificial perfect faces, extra fingers, distorted objects, impossible architecture, excessive bokeh, generic luxury styling, stock poses, obvious AI symmetry, fake typography, testimonials or client documents.
 
-**MM-03:** A small private dinner in a lived-in Madrid home, friends of different generations leaning into conversation around a long table after cooking together, handmade pasta, soft candles, open window, 35mm cinematic editorial photography, warm human imperfection, no luxury staging or identifiable branding.
+### Video plan, not yet produced
 
-**CS-01:** Fictional editorial concept for a private film-inspired birthday: a quiet older guest seen from behind in a tiny atmospheric screening room as a personal projection illuminates friends, deep red and amber projector light, natural reactions, cinematic photography, no readable screen content, no implication of documented client work.
+- After Dark: 6–8 second muted loop of restrained movement and brief flash-lit cuts.
+- Stillness: 8–12 second muted loop with almost imperceptible slow camera movement in daylight.
+- Off Script: 7–10 second muted landscape travel loop in daylight.
+- Transformation: three lightweight visual states aligned with natural page scroll.
 
-**BM-01:** Art director's working desk for an illustrative private event concept, layered unmarked paper floor plan, color swatches, venue contact sheet, pencil notes too indistinct to read, practical schedule cards, tactile overhead photograph in raking warm light, sophisticated organized creative process, no fake client names or legible records.
+The current implementation uses generated poster stills and CSS motion only. No video was generated, optimized or integrated. Motion is removed under reduced-motion preferences.
 
-## Video prompts and fallback
-Video generation and optimization require an approved production tool. Until produced, use the poster images with world-specific CSS movement that respects reduced motion. AD-01 future loop: 6–8 seconds of restrained flash-lit gesture cuts; ST-01: 8–12 seconds of almost imperceptible candlelight and camera travel; OS-01: 7–10 seconds of forward landscape reveal; MM sequence: three smooth visual transitions aligned with natural page scroll. All muted, loopable, and with static posters.
+### Release media work
 
-## Replacement
-Replace files under assets/media while retaining IDs and alt text review. Export desktop/mobile variants with responsive source sets. A new image may only be presented as real project documentation after its provenance is verified and the people pictured have granted permission.
+1. Export each poster to responsive AVIF/WebP sizes. Prioritize the default After Dark poster; load the other two world images on demand.
+2. Create intentional 4:5 mobile compositions rather than relying only on cropping.
+3. Review generated anatomy and artifacts at full resolution.
+4. Replace the typographic founder placeholder with an approved real portrait and verified biography.
+5. Replace or add documented real project imagery when permissions and provenance exist.
+6. Keep conceptual labels until real work is verified; update alt text with the final image content.
