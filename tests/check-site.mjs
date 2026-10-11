@@ -17,7 +17,7 @@ for (const [path, source] of Object.entries(html)) {
     if (/^(?:https?:|mailto:|#)/.test(ref)) continue;
     const resolved = new URL(ref, "https://example.com/event-agency/" + (path === "index.html" ? "" : path.replace(/index\.html$/, "")));
     const relative = resolved.pathname.replace(/^\/event-agency\//, "");
-    const target = relative.endsWith("/") ? relative + "index.html" : relative;
+    const target = !relative ? "index.html" : relative.endsWith("/") ? relative + "index.html" : relative;
     assert.ok(existsSync(target), path + ": missing " + ref + " → " + target);
   }
 }
