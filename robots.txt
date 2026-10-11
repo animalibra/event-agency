@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://animalibra.github.io/event-agency/sitemap.xml
