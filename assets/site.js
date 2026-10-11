@@ -1,9 +1,9 @@
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const worlds = {
-    'after-dark': { image: 'assets/media/after-dark.png', video: 'assets/media/after-dark-loop.mp4', alt: 'Conceptual editorial scene of a private celebration after dark', title: 'After Dark', rhythm: 'electric' },
-    stillness: { image: 'assets/media/stillness.png', video: 'assets/media/stillness-loop.mp4', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
-    'off-script': { image: 'assets/media/off-script.png', video: 'assets/media/off-script-loop.mp4', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
+    'after-dark': { image: 'assets/media/after-dark.webp', video: 'assets/media/after-dark-loop.mp4', alt: 'Conceptual editorial scene of a private celebration after dark', title: 'After Dark', rhythm: 'electric' },
+    stillness: { image: 'assets/media/stillness.webp', video: 'assets/media/stillness-loop.mp4', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
+    'off-script': { image: 'assets/media/off-script.webp', video: 'assets/media/off-script-loop.mp4', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
   };
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('#hero-image');
