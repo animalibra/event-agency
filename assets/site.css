@@ -39,3 +39,13 @@ body[data-world="off-script"] .hero-media img{animation:heroTravel 12s ease-in-o
 @keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.04)}}
 @keyframes heroTravel{from{transform:scale(1) translateX(0)}to{transform:scale(1.06) translateX(-1%)}}
 @media(prefers-reduced-motion:reduce){.morph-visual{transition:none!important}}
+
+/* Muted hero films sit behind their posters; posters remain when video cannot play. */
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0}
+.hero-media img{position:relative;z-index:1}
+.hero.video-ready .hero-media img{opacity:0}
+.hero.is-changing .hero-media img{opacity:.15}
+.world-chapter.dark{background:radial-gradient(circle at 72% 46%,#672c2c 0%,#2d1d1d 24%,#171515 60%),#171515}
+.world-chapter.dark:after{content:'';position:absolute;z-index:-1;width:min(40vw,530px);aspect-ratio:3/4;right:8vw;top:12%;border:1px solid #e876654d;transform:rotate(8deg);box-shadow:inset 0 0 0 25px #130f1170,0 0 70px #d6503f26}
+@media(max-width:700px){.world-chapter.dark:after{width:62vw;right:-8vw;top:10%}}
+@media(prefers-reduced-motion:reduce){.hero-media video{display:none}}
