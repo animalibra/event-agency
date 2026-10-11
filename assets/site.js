@@ -1,14 +1,34 @@
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const worlds = {
-    'after-dark': { image: 'assets/media/after-dark.png', alt: 'Conceptual editorial scene of a private celebration after dark', title: 'After Dark', rhythm: 'electric' },
-    stillness: { image: 'assets/media/stillness.png', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
-    'off-script': { image: 'assets/media/off-script.png', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
+    'after-dark': { image: 'assets/media/after-dark.png', video: 'assets/media/after-dark-loop.mp4', alt: 'Conceptual editorial scene of a private celebration after dark', title: 'After Dark', rhythm: 'electric' },
+    stillness: { image: 'assets/media/stillness.png', video: 'assets/media/stillness-loop.mp4', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
+    'off-script': { image: 'assets/media/off-script.png', video: 'assets/media/off-script-loop.mp4', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
   };
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('#hero-image');
+  const heroVideo = document.querySelector('#hero-video');
   const worldButtons = [...document.querySelectorAll('[data-select-world]')];
   let changeToken = 0;
+  let videoToken = 0;
+  const syncVideo = name => {
+    if (!heroVideo || !hero || reduced.matches || navigator.connection?.saveData) return;
+    const token = ++videoToken;
+    hero.classList.remove('video-ready');
+    heroVideo.pause();
+    heroVideo.removeAttribute('src');
+    heroVideo.load();
+    heroVideo.poster = worlds[name].image;
+    heroVideo.oncanplay = () => {
+      if (token !== videoToken) return;
+      Promise.resolve(heroVideo.play()).then(() => {
+        if (token === videoToken) hero.classList.add('video-ready');
+      }).catch(() => {});
+    };
+    heroVideo.onerror = () => { if (token === videoToken) hero.classList.remove('video-ready'); };
+    heroVideo.src = worlds[name].video;
+    heroVideo.load();
+  };
   const validWorld = value => Object.hasOwn(worlds, value) ? value : 'after-dark';
   const setWorld = (requested, initial = false) => {
     const name = validWorld(requested);
@@ -26,6 +46,7 @@
       heroImage.src = detail.image;
       heroImage.alt = detail.alt;
       if (hero) hero.classList.remove('is-changing');
+      syncVideo(name);
     };
     if (!initial && !reduced.matches && hero) hero.classList.add('is-changing');
     if (replacement.complete) commit();
@@ -38,6 +59,12 @@
   let savedWorld = 'after-dark';
   try { savedWorld = sessionStorage.getItem('oyw-world') || savedWorld; } catch (_) {}
   setWorld(savedWorld, true);
+  if (validWorld(savedWorld) === 'after-dark') syncVideo('after-dark');
+  document.addEventListener('visibilitychange', () => {
+    if (!heroVideo) return;
+    if (document.hidden) heroVideo.pause();
+    else if (hero.classList.contains('video-ready') && !reduced.matches) heroVideo.play().catch(() => {});
+  });
 
   const dock = document.querySelector('.world-dock');
   if (dock && hero && 'IntersectionObserver' in window) {
