@@ -22,7 +22,7 @@ for (const [path, source] of Object.entries(html)) {
   }
 }
 const home = html["index.html"];
-assert.equal((home.match(/<section\b/g) || []).length, 7, "homepage has hero plus seven section scenes (world chapters are articles)");
+assert.equal((home.match(/<section\b/g) || []).length, 8, "homepage has eight scenes (world chapters are articles)");
 for (const world of ["after-dark", "stillness", "off-script"]) {
   assert.match(home, new RegExp('data-select-world="' + world + '"'), "world control " + world);
   assert.ok(existsSync("assets/media/" + world + ".png"), "world image " + world);
