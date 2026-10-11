@@ -16,3 +16,26 @@ footer{padding:2.5rem 5vw;background:#141211;color:#c9c3b9;display:flex;gap:2rem
 @media(max-width:900px){.site-header{align-items:flex-start}.menu-button{display:block}.site-nav{display:none;position:absolute;right:5vw;top:4.8rem;background:#211d1b;color:#fff;padding:1.6rem;min-width:200px;box-shadow:0 15px 35px #0004;flex-direction:column;align-items:flex-start}.site-nav.open{display:flex}.hero-sub,.manifest-grid,.morph-intro,.stories-head,.production-header,.contact-intro,.page-hero .section-inner,.page-copy-grid{grid-template-columns:1fr}.hero-actions{margin-top:1rem}.manifest-mark{display:none}.manifest-text{margin:2rem 0 0}.world-chapter{min-height:65vh}.founder-layout{gap:5vw}}
 @media(max-width:700px){.section{padding:5rem 6vw}.site-header{padding:1.2rem 6vw}.hero{min-height:100svh}.hero-media img{object-position:60% center}.hero-content{padding:8rem 6vw 2rem}.hero h1{font-size:clamp(4rem,16vw,7rem);margin:2rem 0}.hero-sub{gap:1.4rem}.hero-switch{display:block;margin-top:3rem}.hero-switch .world-switch{margin-top:1rem}.world-switch button{min-width:0;flex:1}.scroll-cue{display:none}.world-dock{left:0;right:0;bottom:0;margin:0;box-shadow:none}.world-dock .world-switch{display:grid;grid-template-columns:repeat(3,1fr)}.world-dock .world-switch button{text-align:center}.morph-layout{display:block}.morph-visual{position:relative;top:auto;height:60vh;max-height:500px}.morph-copy{padding:0}.morph-step{min-height:0;padding:2.5rem 0}.worlds-heading{padding:5rem 6vw 2rem}.world-chapter{min-height:72vh;padding:3rem 6vw}.world-chapter img{object-position:58% center}.world-chapter.still img{object-position:70% center}.world-chapter h3{font-size:clamp(3.5rem,16vw,6rem)}.world-chapter .chapter-number{right:6vw}.story-spread,.story-second,.production-board,.founder-layout,.dna{grid-template-columns:1fr}.story-spread{margin-top:3rem}.story-image{min-height:380px}.story-second .story-copy{order:0}.production-board{display:block}.board-main{border-right:0;border-bottom:1px solid #817d72;min-height:450px}.board-timeline{grid-template-columns:repeat(2,1fr)}.board-timeline div{padding:.8rem}.board-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.board-side>div:first-child{border-bottom:0;border-right:1px solid}.founder-art{max-height:430px;aspect-ratio:1.2}.contact-paths{margin-bottom:4rem}.page-hero{padding:7rem 6vw 4rem}.page-media{height:48vh}.services-list article{grid-template-columns:1fr;gap:.8rem}.footer-links{gap:.8rem}footer{padding:2rem 6vw 5rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+/* The editorial atlas keeps each concept distinct without loading three extra images. */
+.morph-visual{background-image:url('media/story-atlas.png');background-size:200% 200%;background-position:0% 0%;transition:background-position .8s ease}
+.morph-visual[data-step="1"]{background-position:100% 0%}
+.morph-visual[data-step="2"]{background-position:0% 100%}
+.morph-visual .concept-tag{position:absolute;left:1rem;bottom:1rem;background:#f4f0e9e8;color:#211d1b;padding:.7rem;max-width:calc(100% - 2rem)}
+.story-image{background-image:url('media/story-atlas.png');background-size:200% 200%}
+.story-image.sunlit-meal{background-position:0% 100%}
+.story-image.cinema-note{background-position:100% 100%}
+body[data-world="stillness"] .manifest{background:#f5f0e7}
+body[data-world="stillness"] .morph{background:#e9e1d3}
+body[data-world="stillness"] .production{background:#e7ddcd}
+body[data-world="stillness"] .manifest .display{font-weight:500}
+body[data-world="off-script"] .manifest{background:#e7ebdf}
+body[data-world="off-script"] .morph{background:#dce4db}
+body[data-world="off-script"] .production{background:#d5ded3}
+body[data-world="off-script"] .manifest .serif{color:#536c59}
+body[data-world="after-dark"] .hero-media img{animation:heroCut 8s ease-in-out infinite}
+body[data-world="stillness"] .hero-media img{animation:heroDrift 16s ease-in-out infinite alternate}
+body[data-world="off-script"] .hero-media img{animation:heroTravel 12s ease-in-out infinite alternate}
+@keyframes heroCut{0%,100%{filter:contrast(1)}48%{filter:contrast(1)}50%{filter:contrast(1.14)}52%{filter:contrast(1)}}
+@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.04)}}
+@keyframes heroTravel{from{transform:scale(1) translateX(0)}to{transform:scale(1.06) translateX(-1%)}}
+@media(prefers-reduced-motion:reduce){.morph-visual{transition:none!important}}
