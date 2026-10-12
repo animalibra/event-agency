@@ -33,7 +33,7 @@ Event DNA has four optional prompts, back/edit controls and a transparent client
 
 ## Moving image and remaining media
 
-Three muted live-action hero films and matching WebP frame posters are included on this branch. They show editorial stock footage, **not** ONLY YOU WOULD events. The [source notes](assets/media/VIDEO_SOURCES.md) document provenance and license; [build-editorial-films.sh](scripts/build-editorial-films.sh) reproduces the optimized files. Only the selected world video loads. Reduced-motion and data-saving visitors see a static poster.
+Three muted live-action hero films and matching WebP frame posters are included on this branch. They show editorial stock footage, **not** ONLY YOU WOULD events. The [source notes](assets/media/VIDEO_SOURCES.md) document both the committed clips and two requested replacements. [build-editorial-films.sh](scripts/build-editorial-films.sh) currently produces replacement previews; those new files have not been committed to the site. Only the selected world video loads. Reduced-motion and data-saving visitors see a static poster.
 
 The older AI concept photographs remain in editorial story sections. Commissioned footage, mobile-specific compositions, a genuine founder portrait and full-resolution media review are still needed for a final release.
 
