@@ -5,6 +5,7 @@ on:
       - redesign/cinematic-editorial
     paths:
       - .github/workflows/build-editorial-films.yml
+      - scripts/build-editorial-films.sh
   workflow_dispatch:
 
 permissions:
