@@ -25,9 +25,12 @@ const home = html["index.html"];
 assert.equal((home.match(/<section\b/g) || []).length, 8, "homepage has eight scenes (world chapters are articles)");
 for (const world of ["after-dark", "stillness", "off-script"]) {
   assert.match(home, new RegExp('data-select-world="' + world + '"'), "world control " + world);
-  assert.ok(existsSync("assets/media/" + world + ".png"), "world image " + world);
+  assert.ok(existsSync("assets/media/" + world + ".webp"), "world poster " + world);
+  const video = readFileSync("assets/media/" + world + "-loop.mp4");
+  assert.equal(video.subarray(4, 8).toString(), "ftyp", world + ": MP4 header");
 }
-assert.ok(existsSync("assets/media/story-atlas.png"), "story atlas");
+assert.ok(existsSync("assets/media/story-atlas.webp"), "story atlas");
+assert.match(home, /id="hero-video"/);
 assert.match(readFileSync("portrait-preview.html", "utf8"), /name="robots" content="noindex,nofollow"/);
 assert.match(readFileSync("assets/site.css", "utf8"), /prefers-reduced-motion:reduce/);
 new Function(readFileSync("assets/site.js", "utf8"));
@@ -42,7 +45,7 @@ try {
     }),
     delay(5000).then(() => { throw new Error("server start timed out"); })
   ]);
-  for (const route of ["/", "/private-events-madrid/", "/destination-celebrations-spain/", "/bespoke-experiences-spain/", "/about/", "/contact/", "/assets/site.css", "/assets/site.js"]) {
+  for (const route of ["/", "/private-events-madrid/", "/destination-celebrations-spain/", "/bespoke-experiences-spain/", "/about/", "/contact/", "/assets/site.css", "/assets/site.js", "/assets/media/after-dark.webp", "/assets/media/after-dark-loop.mp4"]) {
     const response = await fetch("http://127.0.0.1:" + port + route);
     assert.equal(response.status, 200, route + " should load directly");
     assert.ok((await response.text()).length > 100, route + " should have content");
