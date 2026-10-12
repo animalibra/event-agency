@@ -15,8 +15,8 @@ Implement homepage plus distinct pages for private events in Madrid, destination
 ## Creative system
 - Core: deep charcoal, warm paper, tactile editorial rules, expressive display sans and readable editorial body.
 - After Dark: near-black, crimson, flash white, short image cuts.
-- Stillness: ivory, brown, muted gold, slower dissolves.
-- Off Script: forest, blue-gray, earth, spatial reveals.
+- Stillness: sunlit ivory, soft taupe and honey, slower dissolves.
+- Off Script: bright sky, pale stone, sage and earth, spatial reveals.
 - World switch changes the hero, palette, image treatment, typography emphasis, and transition rhythm without reloading or moving scroll. The choice persists for the session.
 - Each of the eight homepage scenes has a different composition and density. Motion always has a static and reduced-motion path.
 
@@ -31,7 +31,7 @@ Implement homepage plus distinct pages for private events in Madrid, destination
 8. Event DNA: optional progressive questions, transparent rule-based interpretation, editable answers, mailto and copy fallback.
 
 ## Media direction
-Create a new coherent media set, with a manifest describing every asset and production prompt. Prefer still image sequences and light CSS motion for the first version. Video loops remain planned assets until generated, optimized, and tested; do not present them as delivered. New imagery is conceptual and never a claim of completed client work.
+Create a new coherent media set, with a manifest describing every asset and production prompt. The first version uses six optimized WebP editorial scenes and three small muted MP4 hero loops rendered from conceptual still images. These are motion treatments rather than camera footage. Future film production can replace them. The memory sequence uses a light scroll-linked image atlas. New imagery is conceptual and never a claim of completed client work.
 
 ## SEO and quality
 Unique visible H1 and page titles; canonical links, Open Graph, Organization and factual Service schema; robots.txt and sitemap.xml; semantic links and accessible controls. The prototype receives noindex in the redesign branch. Test nested routes, keyboard operation, reduced motion, mobile layout, image loading, and contact flow. Report measured performance only after a real audit.
