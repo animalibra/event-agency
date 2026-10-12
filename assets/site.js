@@ -1,9 +1,9 @@
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const worlds = {
-    'after-dark': { image: 'assets/media/after-dark.webp', video: 'assets/media/after-dark-loop.mp4', alt: 'Conceptual editorial scene of a private celebration after dark', title: 'After Dark', rhythm: 'electric' },
-    stillness: { image: 'assets/media/stillness.webp', video: 'assets/media/stillness-loop.mp4', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
-    'off-script': { image: 'assets/media/off-script.webp', video: 'assets/media/off-script-loop.mp4', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
+    'after-dark': { image: 'assets/media/after-dark-film.webp', video: 'assets/media/after-dark-loop.mp4', alt: 'Illustrative editorial footage of an older couple dancing at a private celebration', title: 'After Dark', rhythm: 'electric' },
+    stillness: { image: 'assets/media/stillness-film.webp', video: 'assets/media/stillness-loop.mp4', alt: 'Illustrative editorial footage of a grandmother and grandchild preparing food together', title: 'Stillness', rhythm: 'gentle' },
+    'off-script': { image: 'assets/media/off-script-film.webp', video: 'assets/media/off-script-loop.mp4', alt: 'Illustrative editorial footage of two people walking along a sunny countryside road', title: 'Off Script', rhythm: 'open' }
   };
   const transformations = {
     'after-dark': {
