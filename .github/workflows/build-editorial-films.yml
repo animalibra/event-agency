@@ -1,0 +1,36 @@
+name: Build editorial footage preview
+on:
+  push:
+    branches:
+      - redesign/cinematic-editorial
+    paths:
+      - .github/workflows/build-editorial-films.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  footage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure video tools
+        run: |
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          command -v ffprobe
+      - name: Build optimized live-action loops
+        run: bash scripts/build-editorial-films.sh
+      - name: Upload footage for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-footage-preview
+          path: |
+            assets/media/after-dark-loop.mp4
+            assets/media/stillness-loop.mp4
+            assets/media/off-script-loop.mp4
+            assets/media/after-dark-film.webp
+            assets/media/stillness-film.webp
+            assets/media/off-script-film.webp
+          if-no-files-found: error
