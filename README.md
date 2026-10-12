@@ -4,7 +4,7 @@ This branch is a proposed replacement for the current GitHub Pages website. It i
 
 ## Run locally
 
-The site is static HTML, CSS and JavaScript with no build step or dependencies. From the repository root, run **npm run dev** and open **http://127.0.0.1:4173/**. The included server resolves nested directory indexes; GitHub Pages does so after deployment.
+The site is static HTML, CSS and JavaScript with no production build step or runtime dependencies. The self-hosted WOFF2 fonts and optimized media are already included. From the repository root, run **npm run dev** and open **http://127.0.0.1:4173/**. The included server resolves nested directory indexes; GitHub Pages does so after deployment.
 
 ## Pages and architecture
 
@@ -43,4 +43,4 @@ For a preview, deploy this branch to a separate GitHub Pages repository or other
 
 ## Verification status
 
-Static source checks can validate JavaScript syntax, page structure and file references. Browser, Safari, Lighthouse and real connection tests still need to run. Do not treat the target scores in the brief as measured results. See the delivery notes added before handoff for exact test outcomes and limitations.
+Static source checks can validate JavaScript syntax, page structure and file references. GitHub Actions runs source checks and Playwright smoke tests in Chromium and WebKit at desktop and iPhone 13 viewport sizes. The smoke test covers world switching, Event DNA, mobile navigation and width, and the selected MP4 response. Four review screenshots are saved in docs/screenshots/. These browser engines are useful proxies, but real iPhone Safari, Lighthouse and field performance have not been measured. Do not treat the target scores in the brief as measured results. See docs/delivery-notes.md for exact outcomes and limitations.
