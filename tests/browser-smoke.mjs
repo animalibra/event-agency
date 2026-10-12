@@ -67,6 +67,10 @@ try {
       const phone = await mobile.newPage();
       await phone.goto(base + "/", { waitUntil: "domcontentloaded" });
       const geometry = await phone.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
+      if (geometry.scroll > geometry.client + 4) {
+        const offenders = await phone.evaluate(() => [...document.querySelectorAll("body *")].map(e => ({ tag: e.tagName, className: String(e.className).slice(0,80), right: Math.round(e.getBoundingClientRect().right), width: Math.round(e.getBoundingClientRect().width) })).filter(x => x.right > innerWidth + 5).sort((a,b) => b.right - a.right).slice(0,12));
+        console.log("Mobile overflow elements:", JSON.stringify(offenders));
+      }
       assert.ok(geometry.scroll <= geometry.client + 4, "mobile homepage overflows horizontally: " + JSON.stringify(geometry));
       await phone.locator(".menu-button").click();
       assert.equal(await phone.locator(".menu-button").getAttribute("aria-expanded"), "true");
