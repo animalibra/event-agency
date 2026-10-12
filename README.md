@@ -4,7 +4,7 @@ This branch is a proposed replacement for the current GitHub Pages website. It i
 
 ## Run locally
 
-The site is static HTML, CSS and JavaScript with no build step or dependencies. From the repository root, run **npm run dev** and open **http://127.0.0.1:4173/**. The server should support directory indexes for nested pages; GitHub Pages does so after deployment.
+The site is static HTML, CSS and JavaScript with no build step or dependencies. From the repository root, run **npm run dev** and open **http://127.0.0.1:4173/**. The included server resolves nested directory indexes; GitHub Pages does so after deployment.
 
 ## Pages and architecture
 
@@ -33,7 +33,7 @@ Event DNA has four optional prompts, back/edit controls and a transparent client
 
 ## Media still needed
 
-The current PNG concept posters require responsive AVIF/WebP exports, mobile art direction, full-resolution visual review and performance measurements. Video loops have **not** been produced. Details and production prompts are in docs/media-manifest.md.
+The live site uses optimized WebP posters and three muted MP4 hero loops rendered from the concept photographs. Source PNGs remain for future art direction. Mobile-specific compositions, full-resolution visual review and measured performance are still needed. These are motion treatments of stills, not footage of real events. Details and production prompts are in docs/media-manifest.md.
 
 ## SEO and deployment
 
