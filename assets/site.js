@@ -5,6 +5,42 @@
     stillness: { image: 'assets/media/stillness.webp', video: 'assets/media/stillness-loop.mp4', alt: 'Conceptual sunlit family table with a quiet personal gesture', title: 'Stillness', rhythm: 'gentle' },
     'off-script': { image: 'assets/media/off-script.webp', video: 'assets/media/off-script-loop.mp4', alt: 'Conceptual sunlit journey through the Spanish landscape', title: 'Off Script', rhythm: 'open' }
   };
+  const transformations = {
+    'after-dark': {
+      alt: 'Illustrative concept: a private joke becomes an electric celebration among old friends',
+      steps: [
+        ['The voice note they kept for years.', 'A ridiculous recording in an old group chat still makes everyone laugh. That tiny piece of their shared history is our starting point.'],
+        ['The private joke becomes the invitation.', 'Its words, rhythm and characters shape the music, the surprises and the way the night unfolds. Nothing would make sense to anyone else.'],
+        ['A midnight celebration only this group could have.', 'Old friends step into a world made from their own stories. This is a fictional concept study, not a completed client event.']
+      ]
+    },
+    stillness: {
+      alt: 'Illustrative concept: a handwritten family recipe becomes a sunlit meal made together',
+      steps: [
+        ["Her grandmother's Sunday kitchen.", 'Not a colour scheme. Not a venue brief. A handwritten recipe, a familiar smell and everyone gathered at one table.'],
+        ['The recipe becomes something everyone makes.', 'The people who matter take part. The detail turns into a ritual rather than decoration.'],
+        ['A private lunch with a story in every place setting.', 'A personal memory becomes a shared world. The images show a fictional creative direction, not photographs of a client event.']
+      ]
+    },
+    'off-script': {
+      alt: 'Illustrative concept: a handwritten list of someday places becomes a surprise journey across Spain',
+      steps: [
+        ['The list of places she called “one day”.', 'A folded note holds the roads, buildings and landscapes she has quietly wanted to see for years.'],
+        ['The list becomes a route.', 'A seemingly ordinary departure reveals small, personal clues along the way. Each stop has a reason only she will recognise.'],
+        ['A journey with no borrowed itinerary.', 'The final destination is a surprise shaped around her curiosity. This is a fictional concept study, not a completed trip.']
+      ]
+    }
+  };
+  const morphVisual = document.querySelector('.morph-visual');
+  const morphSteps = [...document.querySelectorAll('.morph-step')];
+  const updateTransformation = name => {
+    const story = transformations[name];
+    if (morphVisual) morphVisual.setAttribute('aria-label', story.alt);
+    morphSteps.forEach((element, index) => {
+      element.querySelector('h3').textContent = story.steps[index][0];
+      element.querySelector('p').textContent = story.steps[index][1];
+    });
+  };
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('#hero-image');
   const heroVideo = document.querySelector('#hero-video');
@@ -34,6 +70,7 @@
     const name = validWorld(requested);
     const detail = worlds[name];
     document.body.dataset.world = name;
+    updateTransformation(name);
     if (hero) hero.dataset.world = name;
     worldButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.selectWorld === name)));
     try { sessionStorage.setItem('oyw-world', name); } catch (_) {}
