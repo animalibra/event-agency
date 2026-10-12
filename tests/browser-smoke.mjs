@@ -29,6 +29,10 @@ try {
       assert.equal(await page.locator("h1").count(), 1);
       assert.equal(await page.locator("#hero-image").getAttribute("src"), "assets/media/after-dark.webp");
       assert.equal(await page.locator(".hero-switch button").count(), 3);
+      assert.equal(await page.locator(".world-chapter").count(), 0);
+      assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /voice note/i);
+      const switchBounds = await page.locator(".hero-switch").boundingBox();
+      assert.ok(switchBounds && switchBounds.y < 650, "world switcher is not prominent in the first desktop screen");
       if (browserType === chromium) await page.screenshot({ path: "artifacts/after-dark-desktop.jpg", type: "jpeg", quality: 65 });
       const still = page.locator('.hero-switch button[data-select-world="stillness"]');
       await still.scrollIntoViewIfNeeded();
@@ -37,11 +41,13 @@ try {
       await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/stillness.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "stillness");
       assert.equal(await still.getAttribute("aria-pressed"), "true");
+      assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /grandmother/i);
       assert.ok(Math.abs((await page.evaluate(() => scrollY)) - scrollBefore) < 4, "world switch changed scroll position");
       if (browserType === chromium) await page.screenshot({ path: "artifacts/stillness-desktop.jpg", type: "jpeg", quality: 65 });
       await page.locator('.hero-switch button[data-select-world="off-script"]').click();
       await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/off-script.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "off-script");
+      assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /places she called/i);
       if (browserType === chromium) await page.screenshot({ path: "artifacts/off-script-desktop.jpg", type: "jpeg", quality: 65 });
 
       await page.locator("#dna-answer").fill("Old cinema tickets");
@@ -66,6 +72,8 @@ try {
       const mobile = await browser.newContext({ ...devices["iPhone 13"], reducedMotion: "reduce" });
       const phone = await mobile.newPage();
       await phone.goto(base + "/", { waitUntil: "domcontentloaded" });
+      const mobileSwitch = await phone.locator(".hero-switch").boundingBox();
+      assert.ok(mobileSwitch && mobileSwitch.y < 650, "world switcher is not prominent in the first mobile screen");
       const geometry = await phone.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
       if (geometry.scroll > geometry.client + 4) {
         const offenders = await phone.evaluate(() => [...document.querySelectorAll("body *")].map(e => ({ tag: e.tagName, className: String(e.className).slice(0,80), right: Math.round(e.getBoundingClientRect().right), width: Math.round(e.getBoundingClientRect().width) })).filter(x => x.right > innerWidth + 5).sort((a,b) => b.right - a.right).slice(0,12));
