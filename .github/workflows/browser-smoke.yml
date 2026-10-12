@@ -25,6 +25,7 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - run: node tests/browser-smoke.mjs
       - name: Save review screenshots to redesign branch
+        if: github.event_name == 'push'
         run: |
           mkdir -p docs/screenshots
           cp artifacts/*.jpg docs/screenshots/
@@ -33,6 +34,8 @@ jobs:
           git add docs/screenshots/
           if ! git diff --cached --quiet; then
             git commit -m "Save redesign browser review screenshots"
+            git fetch origin redesign/cinematic-editorial
+            git rebase origin/redesign/cinematic-editorial
             git push origin HEAD:redesign/cinematic-editorial
           fi
       - uses: actions/upload-artifact@v4
