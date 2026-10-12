@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   footage:
@@ -22,6 +22,17 @@ jobs:
           command -v ffprobe
       - name: Build optimized live-action loops
         run: bash scripts/build-editorial-films.sh
+      - name: Commit footage to redesign branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/media/after-dark-loop.mp4 assets/media/stillness-loop.mp4 assets/media/off-script-loop.mp4
+          git add assets/media/after-dark-film.webp assets/media/stillness-film.webp assets/media/off-script-film.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Integrate live-action footage in redesign preview"
+            git pull --rebase origin redesign/cinematic-editorial
+            git push origin HEAD:redesign/cinematic-editorial
+          fi
       - name: Upload footage for review
         uses: actions/upload-artifact@v4
         with:
