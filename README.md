@@ -23,7 +23,7 @@ The proposed private parties page was consolidated into private events to avoid 
 
 ## Content integrity
 
-Current images are AI-generated **conceptual editorial illustrations**. They are not evidence of completed client work. The two story examples and the memory transformation are labelled concept studies. The founder section uses a typographic placeholder; it does not invent Natalia's likeness, client history, reviews or career details. A genuine approved portrait and verified biography are needed before release.
+Most still images are AI-generated **conceptual editorial illustrations**. The three hero films are licensed editorial stock footage, credited in [VIDEO_SOURCES.md](assets/media/VIDEO_SOURCES.md). They are not evidence of completed client work. The two story examples and the memory transformation are labelled concept studies. The founder section uses a typographic placeholder; it does not invent Natalia's likeness, client history, reviews or career details. A genuine approved portrait and verified biography are needed before release.
 
 ## Interaction
 
@@ -31,9 +31,11 @@ World buttons change hero media, palette and motion without a reload or scroll r
 
 Event DNA has four optional prompts, back/edit controls and a transparent client-side interpretation. It is **not AI**. Answers stay in the current page until the visitor chooses to open an email draft or copy the text. Opening a draft does not send an inquiry. Direct email is always available: nataliaefimova.com@gmail.com.
 
-## Media still needed
+## Moving image and remaining media
 
-The live site uses optimized WebP posters and three muted MP4 hero loops rendered from the concept photographs. Source PNGs remain for future art direction. Mobile-specific compositions, full-resolution visual review and measured performance are still needed. These are motion treatments of stills, not footage of real events. Details and production prompts are in docs/media-manifest.md.
+Three muted live-action hero films and matching WebP frame posters are included on this branch. They show editorial stock footage, **not** ONLY YOU WOULD events. The [source notes](assets/media/VIDEO_SOURCES.md) document provenance and license; [build-editorial-films.sh](scripts/build-editorial-films.sh) reproduces the optimized files. Only the selected world video loads. Reduced-motion and data-saving visitors see a static poster.
+
+The older AI concept photographs remain in editorial story sections. Commissioned footage, mobile-specific compositions, a genuine founder portrait and full-resolution media review are still needed for a final release.
 
 ## SEO and deployment
 
@@ -43,4 +45,4 @@ For a preview, deploy this branch to a separate GitHub Pages repository or other
 
 ## Verification status
 
-Static source checks can validate JavaScript syntax, page structure and file references. GitHub Actions runs source checks and Playwright smoke tests in Chromium and WebKit at desktop and iPhone 13 viewport sizes. The smoke test covers world switching, Event DNA, mobile navigation and width, and the selected MP4 response. Four review screenshots are saved in docs/screenshots/. These browser engines are useful proxies, but real iPhone Safari, Lighthouse and field performance have not been measured. Do not treat the target scores in the brief as measured results. See docs/delivery-notes.md for exact outcomes and limitations.
+Static source checks validate JavaScript syntax, page structure and file references. GitHub Actions runs source checks and Playwright smoke tests in Chromium and WebKit at desktop and iPhone 13 viewport sizes. The smoke test covers world switching, Event DNA, mobile navigation and width, and all three MP4 responses and playback of the selected film. Four review screenshots are saved in docs/screenshots/. These browser engines are useful proxies, but real iPhone Safari, Lighthouse and field performance have not been measured. Do not treat the target scores in the brief as measured results. See docs/delivery-notes.md for exact outcomes and limitations.
