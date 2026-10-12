@@ -29,7 +29,7 @@ try {
       assert.equal(await page.locator("h1").count(), 1);
       assert.equal(await page.locator("#hero-image").getAttribute("src"), "assets/media/after-dark.webp");
       assert.equal(await page.locator(".hero-switch button").count(), 3);
-      if (browserType === chromium) await page.screenshot({ path: "artifacts/after-dark-desktop.png" });
+      if (browserType === chromium) await page.screenshot({ path: "artifacts/after-dark-desktop.jpg", type: "jpeg", quality: 65 });
       const still = page.locator('.hero-switch button[data-select-world="stillness"]');
       await still.scrollIntoViewIfNeeded();
       const scrollBefore = await page.evaluate(() => scrollY);
@@ -38,11 +38,11 @@ try {
       assert.equal(await page.locator("body").getAttribute("data-world"), "stillness");
       assert.equal(await still.getAttribute("aria-pressed"), "true");
       assert.ok(Math.abs((await page.evaluate(() => scrollY)) - scrollBefore) < 4, "world switch changed scroll position");
-      if (browserType === chromium) await page.screenshot({ path: "artifacts/stillness-desktop.png" });
+      if (browserType === chromium) await page.screenshot({ path: "artifacts/stillness-desktop.jpg", type: "jpeg", quality: 65 });
       await page.locator('.hero-switch button[data-select-world="off-script"]').click();
       await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/off-script.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "off-script");
-      if (browserType === chromium) await page.screenshot({ path: "artifacts/off-script-desktop.png" });
+      if (browserType === chromium) await page.screenshot({ path: "artifacts/off-script-desktop.jpg", type: "jpeg", quality: 65 });
 
       await page.locator("#dna-answer").fill("Old cinema tickets");
       await page.locator("#dna-next").click();
@@ -82,7 +82,7 @@ try {
       assert.ok(contactWidth.scroll <= contactWidth.client + 4, "mobile contact overflows horizontally: " + JSON.stringify(contactWidth));
       if (browserType === chromium) {
         await phone.goto(base + "/", { waitUntil: "domcontentloaded" });
-        await phone.screenshot({ path: "artifacts/mobile-home.png" });
+        await phone.screenshot({ path: "artifacts/mobile-home.jpg", type: "jpeg", quality: 65 });
       }
       await mobile.close();
       console.log(browserType.name() + ": desktop worlds, Event DNA, mobile menu and layout passed.");
