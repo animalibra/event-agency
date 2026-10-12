@@ -59,3 +59,7 @@ body[data-world="off-script"] .hero-media img{animation:heroTravel 12s ease-in-o
   .morph-step[data-step="1"]:before{background-position:100% 0%}
   .morph-step[data-step="2"]:before{background-position:0% 100%}
 }
+
+/* Keep the world selector visible in the first mobile scene. */
+@media(max-width:700px){.hero-content{padding-top:6rem}.hero h1{margin:1.2rem 0 1.4rem;font-size:clamp(3.7rem,15vw,6.5rem)}.hero-sub{gap:.8rem}.hero-actions{gap:.5rem;margin-top:.65rem}.hero-actions .button{padding:.8rem .95rem}.hero-switch{margin-top:1.6rem;padding-top:1rem}.hero-switch .world-switch{margin-top:.7rem}.hero-switch .world-switch button{padding:.6rem .55rem}}
+.manifest,.morph,.production{transition:background-color .9s ease,color .9s ease}
