@@ -8,9 +8,9 @@ The remaining photographic stills are AI-generated **illustrative concepts**. Th
 
 | ID | Live asset | Use | Subject and status |
 | --- | --- | --- | --- |
-| AD-FILM | `after-dark-loop.mp4` and `after-dark-film.webp` | After Dark hero | Older couple dancing at a celebration; licensed editorial footage. |
+| AD-FILM | `after-dark-loop.mp4` and `after-dark-film.webp` | After Dark hero | Young adults dancing beside a DJ in a neon-lit club; licensed editorial footage. |
 | ST-FILM | `stillness-loop.mp4` and `stillness-film.webp` | Stillness hero | Grandmother and grandchild preparing food; licensed editorial footage. |
-| OS-FILM | `off-script-loop.mp4` and `off-script-film.webp` | Off Script hero | Two people on a sunny countryside road; licensed editorial footage. |
+| OS-FILM | `off-script-loop.mp4` and `off-script-film.webp` | Off Script hero | Horseback riders on a scenic beach seen from above; licensed editorial footage. |
 | AD-01 | `after-dark.webp` | After Dark transformation imagery | Dark private celebration; generated concept. |
 | ST-01 | `stillness.webp` | Art-direction source | Sunlit family table; generated concept. |
 | OS-01 | `off-script.webp` | Off Script transformation imagery | Open Spanish landscape; generated concept. |
@@ -21,7 +21,7 @@ The remaining photographic stills are AI-generated **illustrative concepts**. Th
 | BM-01 | HTML/CSS production board | Behind the magic | Illustrative process, identified as such. |
 | FO-01 | Not supplied | Founder | Genuine approved portrait still needed. |
 
-The three MP4 loops are approximately 0.4–1.0 MB each and the film-frame posters 51–109 KB. They are muted H.264 MP4 at 960px width. Only the selected world video loads; the poster remains a fallback when video cannot play, data saving is active, or reduced motion is preferred.
+The three MP4 loops are approximately 0.75–2.2 MB each and the film-frame posters 51–185 KB. They are muted H.264 MP4 at 960px width. Only the selected world video loads; the poster remains a fallback when video cannot play, data saving is active, or reduced motion is preferred.
 
 ## Generation prompts and exclusions for the conceptual stills
 
