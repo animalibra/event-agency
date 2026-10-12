@@ -2,9 +2,9 @@
 
 These clips illustrate possible atmospheres. They are licensed stock footage, **not footage of ONLY YOU WOULD client events**. The still posters currently used on the site are separate conceptual images. The build generates matching frames for future poster use.
 
-- After Dark: [Kampus Production, “Elderly Couple Dancing at a Party”](https://www.pexels.com/video/elderly-couple-dancing-at-a-party-7803494/). A joyful older couple brings age range and human warmth to the electric world.
+- After Dark: [Yan Krukau, “People Dancing in a Club”](https://www.pexels.com/video/people-dancing-in-a-club-9003210/). Young adults dance with a DJ in a neon-lit nightclub. The film is intentionally silent on the website.
 - Stillness: [Mikhail Nilov, “Grandmother and Grandchild Cooking Together”](https://www.pexels.com/video/grandmother-and-grandchild-cooking-together-8308785/). A soft family gesture supports the memory story.
-- Off Script: [Adolph Haben, “Two People Walking Along the Road”](https://www.pexels.com/video/two-people-walking-along-the-road-5924605/). A sunlit route evokes discovery.
+- Off Script: [ROMAN ODINTSOV, “People Riding Horses at the Beach”](https://www.pexels.com/video/people-riding-horses-at-the-beach-7046507/). Aerial footage makes the horseback ride and coastal landscape visible together.
 
 [Pexels license](https://www.pexels.com/license/) permits website use and modification. Attribution is voluntary; credits are preserved here. Do not present the people or scenes as clients or completed projects.
 
