@@ -27,7 +27,7 @@ try {
       await page.goto(base + "/", { waitUntil: "domcontentloaded" });
       assert.match(await page.title(), /Bespoke Event Planner/);
       assert.equal(await page.locator("h1").count(), 1);
-      assert.equal(await page.locator("#hero-image").getAttribute("src"), "assets/media/after-dark.webp");
+      assert.equal(await page.locator("#hero-image").getAttribute("src"), "assets/media/after-dark-film.webp");
       assert.equal(await page.locator(".hero-switch button").count(), 3);
       assert.equal(await page.locator(".world-chapter").count(), 0);
       assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /voice note/i);
@@ -38,14 +38,14 @@ try {
       await still.scrollIntoViewIfNeeded();
       const scrollBefore = await page.evaluate(() => scrollY);
       await still.click();
-      await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/stillness.webp");
+      await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/stillness-film.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "stillness");
       assert.equal(await still.getAttribute("aria-pressed"), "true");
       assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /grandmother/i);
       assert.ok(Math.abs((await page.evaluate(() => scrollY)) - scrollBefore) < 4, "world switch changed scroll position");
       if (browserType === chromium) await page.screenshot({ path: "artifacts/stillness-desktop.jpg", type: "jpeg", quality: 65 });
       await page.locator('.hero-switch button[data-select-world="off-script"]').click();
-      await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/off-script.webp");
+      await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/off-script-film.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "off-script");
       assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /places she called/i);
       if (browserType === chromium) await page.screenshot({ path: "artifacts/off-script-desktop.jpg", type: "jpeg", quality: 65 });
@@ -106,7 +106,13 @@ try {
     const response = await page.request.get(base + "/assets/media/after-dark-loop.mp4");
     assert.equal(response.status(), 200);
     assert.match(response.headers()["content-type"], /video\/mp4/);
-    console.log("Selected muted video loads with MP4 content type.");
+    for (const name of ["stillness", "off-script"]) {
+      const clip = await page.request.get(base + "/assets/media/" + name + "-loop.mp4");
+      assert.equal(clip.status(), 200);
+      assert.match(clip.headers()["content-type"], /video\/mp4/);
+    }
+    await page.waitForFunction(() => document.querySelector("#hero-video")?.currentTime > 0.2);
+    console.log("All three live-action films load; the selected muted film advances.");
   } finally {
     await videoContext.close();
   }
