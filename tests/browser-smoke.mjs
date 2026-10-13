@@ -40,6 +40,7 @@ try {
       await still.click();
       await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/stillness-film.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "stillness");
+      assert.equal(await page.locator("#quiz-invite-image").getAttribute("src"), "assets/media/stillness-chapter.webp");
       assert.equal(await still.getAttribute("aria-pressed"), "true");
       assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /grandmother/i);
       assert.ok(Math.abs((await page.evaluate(() => scrollY)) - scrollBefore) < 4, "world switch changed scroll position");
@@ -47,6 +48,7 @@ try {
       await page.locator('.hero-switch button[data-select-world="off-script"]').click();
       await page.waitForFunction(() => document.querySelector("#hero-image")?.getAttribute("src") === "assets/media/off-script-film.webp");
       assert.equal(await page.locator("body").getAttribute("data-world"), "off-script");
+      assert.equal(await page.locator("#quiz-invite-image").getAttribute("src"), "assets/media/off-script-chapter.webp");
       assert.match(await page.locator(".morph-step[data-step=\"0\"] h3").textContent(), /places she called/i);
       if (browserType === chromium) await page.screenshot({ path: "artifacts/off-script-desktop.jpg", type: "jpeg", quality: 65 });
 
