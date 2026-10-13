@@ -230,3 +230,25 @@ body[data-world="off-script"] .morph-visual[data-step="2"]{background-image:url(
   body[data-world="off-script"] .morph-step[data-step="1"]:before{background-image:url('media/off-script.webp');background-position:50% center}
   body[data-world="off-script"] .morph-step[data-step="2"]:before{background-image:url('media/off-script-chapter.webp');background-position:82% center}
 }
+
+/* The personality quiz invitation borrows each world's light, type and rhythm. */
+.quiz-invite{display:grid;grid-template-columns:.95fr 1.05fr;min-height:660px;background:#312327;color:#f6eee8;transition:background .8s,color .8s}
+.quiz-invite-image{position:relative;overflow:hidden;min-height:480px}
+.quiz-invite-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1s,filter .8s}
+.quiz-invite-image .concept-tag{position:absolute;bottom:1.5rem;left:1.5rem;background:#211d1bd1;color:#fff;padding:.6rem .8rem}
+.quiz-invite-copy{padding:clamp(3rem,6vw,7rem);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.quiz-invite-copy h2{font-size:clamp(3.3rem,6.1vw,7rem);line-height:.9;letter-spacing:-.08em;margin:2rem 0}
+.quiz-invite-copy h2 em{display:block;font-family:var(--serif);font-weight:400;letter-spacing:-.04em}
+.quiz-invite-copy p{font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.5;max-width:530px;margin:0 0 1rem}
+.quiz-invite-copy .button{margin:1.4rem 0 1rem}
+.quiz-invite-copy .tiny{opacity:.8}
+body[data-world="after-dark"] .quiz-invite-image img{filter:contrast(1.05) saturate(.8)}
+body[data-world="stillness"] .quiz-invite{background:#eee4d6;color:#322820}
+body[data-world="stillness"] .quiz-invite-copy h2{font-family:var(--serif);font-weight:400;letter-spacing:-.05em}
+body[data-world="stillness"] .quiz-invite-image img{filter:saturate(.7) brightness(1.1)}
+body[data-world="off-script"] .quiz-invite{background:#d3e1d6;color:#1c3127}
+body[data-world="off-script"] .quiz-invite-image img{filter:saturate(.85)}
+body[data-world="off-script"] .quiz-invite-copy h2{font-weight:500}
+@media(max-width:900px){.quiz-invite{grid-template-columns:1fr}.quiz-invite-image{min-height:50vh}.quiz-invite-copy{padding:5rem 6vw}}
+@media(prefers-reduced-motion:reduce){.quiz-invite,.quiz-invite-image img{transition:none}}
+
