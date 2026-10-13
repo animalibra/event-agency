@@ -44,6 +44,7 @@
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('#hero-image');
   const heroVideo = document.querySelector('#hero-video');
+  const quizInviteImage = document.querySelector('#quiz-invite-image');
   const worldButtons = [...document.querySelectorAll('[data-select-world]')];
   let changeToken = 0;
   let videoToken = 0;
@@ -70,6 +71,15 @@
     const name = validWorld(requested);
     const detail = worlds[name];
     document.body.dataset.world = name;
+    if (quizInviteImage) {
+      const invitation = {
+        'after-dark': ['assets/media/after-dark.webp', 'Illustrative expressive private celebration after dark'],
+        stillness: ['assets/media/stillness-chapter.webp', 'Illustrative personal objects in soft daylight'],
+        'off-script': ['assets/media/off-script-chapter.webp', 'Illustrative architectural threshold opening toward a bright Spanish landscape']
+      }[name];
+      quizInviteImage.src = invitation[0];
+      quizInviteImage.alt = invitation[1];
+    }
     updateTransformation(name);
     if (hero) hero.dataset.world = name;
     worldButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.selectWorld === name)));
@@ -225,3 +235,4 @@
     render();
   }
 })();
+

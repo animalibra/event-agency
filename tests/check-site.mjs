@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { setTimeout as delay } from "node:timers/promises";
 
-const pages = ["index.html", "private-events-madrid/index.html", "destination-celebrations-spain/index.html", "bespoke-experiences-spain/index.html", "about/index.html", "contact/index.html"];
+const pages = ["index.html", "private-events-madrid/index.html", "destination-celebrations-spain/index.html", "bespoke-experiences-spain/index.html", "about/index.html", "contact/index.html", "quiz/index.html"];
 const root = process.cwd();
 const html = Object.fromEntries(pages.map(path => [path, readFileSync(path, "utf8")]));
 for (const [path, source] of Object.entries(html)) {
@@ -22,7 +22,11 @@ for (const [path, source] of Object.entries(html)) {
   }
 }
 const home = html["index.html"];
-assert.equal((home.match(/<section\b/g) || []).length, 8, "homepage has eight scenes (world chapters are articles)");
+assert.equal((home.match(/<section\b/g) || []).length, 9, "homepage has eight original scenes plus the quiz invitation");
+assert.match(home, /href="quiz\/"/, "homepage links to the personality quiz");
+assert.match(html["quiz/index.html"], /id="quiz-start"/);
+assert.match(html["quiz/index.html"], /id="quiz-result"/);
+for (const path of ["assets/quiz.css", "assets/quiz.js", "assets/quiz-data.js", "assets/quiz-scoring.js"]) assert.ok(existsSync(path), path);
 for (const world of ["after-dark", "stillness", "off-script"]) {
   assert.match(home, new RegExp('data-select-world="' + world + '"'), "world control " + world);
   assert.ok(existsSync("assets/media/" + world + ".webp"), "world poster " + world);
@@ -54,3 +58,4 @@ try {
 } finally {
   server.kill();
 }
+

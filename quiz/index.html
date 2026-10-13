@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#211d1b">
+  <meta name="description" content="Discover the kind of bespoke celebration that feels like you. A seven-scene creative personality quiz by ONLY YOU WOULD in Madrid.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://animalibra.github.io/event-agency/quiz/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/media/after-dark-film.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/quiz.css">
+  <script src="../assets/site.js" defer></script>
+  <script src="../assets/quiz.js" type="module"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="What Kind of Event Is Made for You? | ONLY YOU WOULD">
+  <meta property="og:description" content="Seven small choices. One surprising creative direction. Discover your event personality.">
+  <meta property="og:url" content="https://animalibra.github.io/event-agency/quiz/">
+  <meta property="og:image" content="https://animalibra.github.io/event-agency/assets/media/after-dark.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>What Kind of Event Is Made for You? | ONLY YOU WOULD</title>
+</head>
+<body class="quiz-page" data-world="after-dark">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header solid">
+  <a class="wordmark" href="../" aria-label="ONLY YOU WOULD home">ONLY YOU WOULD<span>.</span></a>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+  <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
+    <a href="../#worlds">What we make</a><a href="../#stories">Stories</a><a href="../private-events-madrid/">Services</a><a href="../about/">About</a><a class="nav-contact" href="../contact/">Tell us your idea ↗</a>
+  </nav>
+</header>
+<main id="main">
+  <section class="quiz-intro" id="quiz-intro" aria-labelledby="quiz-title">
+    <div class="quiz-intro-copy">
+      <p class="breadcrumbs"><a href="../">Home</a> / An editorial exercise</p>
+      <span class="label">A little experiment in being you</span>
+      <h1 id="quiz-title">IF YOUR<br>PERSONALITY<br>WERE <em>AN EVENT…</em></h1>
+      <p class="quiz-lede">What kind of celebration could only happen to you? Follow seven instincts. We'll give you a direction, then make room for your own idea.</p>
+      <div class="quiz-intro-actions"><button id="quiz-start" class="button filled" type="button">Discover your event <span aria-hidden="true">↗</span></button><span>7 scenes · about 2 minutes · no email required</span></div>
+      <div class="quiz-intro-switch"><span class="eyebrow">Change the atmosphere</span><div class="world-switch" role="group" aria-label="Change the visual world of this page"><button type="button" data-select-world="after-dark" aria-pressed="true">After Dark</button><button type="button" data-select-world="stillness" aria-pressed="false">Stillness</button><button type="button" data-select-world="off-script" aria-pressed="false">Off Script</button></div></div>
+    </div>
+    <div class="quiz-intro-media">
+      <video id="quiz-film" aria-hidden="true" tabindex="-1" muted autoplay loop playsinline preload="none"></video>
+      <img id="quiz-poster" src="../assets/media/after-dark-film.webp" width="1536" height="864" alt="Illustrative editorial atmosphere: friends dancing beside a DJ" fetchpriority="high">
+      <span class="quiz-media-note">01 / One person. Infinite worlds.</span>
+    </div>
+  </section>
+
+  <section class="quiz-stage" id="quiz-stage" aria-labelledby="quiz-question" hidden>
+    <div class="quiz-stage-top"><a href="../" class="quiz-exit">← Back to the studio</a><div class="quiz-step-label" id="quiz-step-label" aria-live="polite"></div></div>
+    <div class="quiz-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="quiz-progress"><span id="quiz-progress-fill"></span></div>
+    <div class="quiz-stage-grid">
+      <div class="quiz-rail"><span class="eyebrow">Only You Would / An editorial exercise</span><span class="quiz-rail-index" id="quiz-rail-index" aria-hidden="true">01</span><p>Pick the thought that pulls you in. You can always change your mind.</p></div>
+      <div class="quiz-main">
+        <div class="quiz-question-head"><span class="label" id="quiz-chapter"></span><h2 id="quiz-question" tabindex="-1"></h2><p id="quiz-note"></p></div>
+        <div class="quiz-choices" id="quiz-choices" role="group" aria-labelledby="quiz-question"></div>
+        <div class="quiz-navigation"><button class="quiz-back" id="quiz-back" type="button">← Previous scene</button><button class="button filled" id="quiz-next" type="button" disabled>Continue <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-result" id="quiz-result" aria-labelledby="quiz-result-title" hidden>
+    <div class="quiz-result-hero">
+      <div class="quiz-result-copy"><span class="label">Your event personality</span><p class="quiz-result-counter">07 scenes / 01 direction / infinite possibilities</p><h2 id="quiz-result-title" tabindex="-1"></h2><p class="quiz-result-kicker" id="quiz-result-kicker"></p><p class="quiz-secondary" id="quiz-secondary" hidden></p></div>
+      <div class="quiz-result-image"><img id="quiz-result-photo" src="../assets/media/stillness.webp" width="1536" height="1024" alt=""><span>Illustrative editorial image / not a completed event</span></div>
+    </div>
+    <div class="quiz-result-editorial">
+      <div class="quiz-result-narrative"><span class="label">A reading, not a prescription</span><p id="quiz-result-description"></p><p id="quiz-result-why"></p><p class="quiz-personal-clue" id="quiz-personal-clue" hidden></p></div>
+      <div class="quiz-result-ideas"><span class="label">Three possible beginnings</span><div id="quiz-examples"></div><p class="quiz-concept-note">These are illustrative creative concepts, not completed client projects.</p></div>
+    </div>
+    <div class="quiz-conversion"><span class="eyebrow">The next scene is yours</span><h3>Your kind of extraordinary <em>begins here.</em></h3><p>Every unforgettable experience begins with an idea. Let's create one that's entirely yours.</p><div class="quiz-result-actions"><a class="button filled" id="quiz-contact" href="mailto:nataliaefimova.com@gmail.com">Let's create your event ↗</a><a class="button" href="../bespoke-experiences-spain/">Explore our experiences ↗</a><button class="button" id="quiz-share" type="button">Share this result ↗</button></div><p class="quiz-mail-note">The first button opens an email draft; please send it from your mail app. Or write directly to <a href="mailto:nataliaefimova.com@gmail.com">nataliaefimova.com@gmail.com</a>.</p><p class="quiz-status" id="quiz-status" role="status"></p><button class="quiz-revisit" id="quiz-revisit" type="button">← Change your last answer</button><button class="quiz-restart" id="quiz-restart" type="button">Start again ↗</button></div>
+  </section>
+  <noscript><p class="quiz-noscript">This interactive exercise needs JavaScript. You can still <a href="../contact/">tell Natalia your idea directly</a>.</p></noscript>
+</main>
+<footer><div>© <span>ONLY YOU WOULD.</span> · Madrid, Spain</div><div class="footer-links"><a href="../private-events-madrid/">Private events</a><a href="../destination-celebrations-spain/">Destination celebrations</a><a href="../bespoke-experiences-spain/">Bespoke experiences</a><a href="../about/">About</a><a href="../contact/">Contact</a></div><div><a href="mailto:nataliaefimova.com@gmail.com">nataliaefimova.com@gmail.com</a></div></footer>
+</body>
+</html>
+
