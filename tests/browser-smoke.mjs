@@ -66,6 +66,36 @@ try {
       assert.match(await page.locator("#dna-mail").getAttribute("href"), /^mailto:nataliaefimova\.com@gmail\.com/);
       await page.locator("#dna-edit").click();
       assert.equal(await page.locator("#dna-answer").inputValue(), "Wonder and laughter");
+      await page.goto(base + "/quiz/", { waitUntil: "domcontentloaded" });
+      assert.match(await page.title(), /What Kind of Event/);
+      assert.equal(await page.locator("h1").count(), 1);
+      await page.locator('[data-select-world="stillness"]').click();
+      assert.equal(await page.locator("body").getAttribute("data-world"), "stillness");
+      assert.match(await page.locator("#quiz-poster").getAttribute("src"), /stillness-film/);
+      await page.locator("#quiz-start").click();
+      assert.equal(await page.locator(".quiz-choice").count(), 4);
+      await page.locator(".quiz-choice").first().click();
+      await page.locator("#quiz-next").click();
+      await page.locator(".quiz-choice").first().click();
+      await page.locator("#quiz-next").click();
+      await page.locator("#quiz-back").click();
+      assert.equal(await page.locator(".quiz-choice").first().getAttribute("aria-pressed"), "true");
+      await page.locator(".quiz-choice").nth(1).click();
+      await page.locator("#quiz-next").click();
+      for (let i = 2; i < 7; i++) {
+        await page.locator(".quiz-choice").first().click();
+        await page.locator("#quiz-next").click();
+      }
+      assert.equal(await page.locator("#quiz-result").isVisible(), true);
+      assert.ok((await page.locator("#quiz-result-title").textContent()).length > 5);
+      assert.equal(await page.locator("#quiz-examples article").count(), 3);
+      assert.match(await page.locator("#quiz-contact").getAttribute("href"), /^mailto:nataliaefimova\.com@gmail\.com/);
+      await page.locator("#quiz-revisit").click();
+      assert.equal(await page.locator("#quiz-stage").isVisible(), true);
+      await page.locator(".quiz-choice").last().click();
+      await page.locator("#quiz-next").click();
+      assert.equal(await page.locator("#quiz-result").isVisible(), true);
+      if (browserType === chromium) await page.screenshot({ path: "artifacts/quiz-result-desktop.jpg", type: "jpeg", quality: 65 });
       assert.equal(errors.length, 0, errors.join("; "));
       await context.close();
 
@@ -92,8 +122,15 @@ try {
         await phone.goto(base + "/", { waitUntil: "domcontentloaded" });
         await phone.screenshot({ path: "artifacts/mobile-home.jpg", type: "jpeg", quality: 65 });
       }
+      await phone.goto(base + "/quiz/", { waitUntil: "domcontentloaded" });
+      const quizWidth = await phone.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
+      assert.ok(quizWidth.scroll <= quizWidth.client + 4, "mobile quiz intro overflows horizontally: " + JSON.stringify(quizWidth));
+      await phone.locator("#quiz-start").click();
+      const quizStepWidth = await phone.evaluate(() => ({ scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth }));
+      assert.ok(quizStepWidth.scroll <= quizStepWidth.client + 4, "mobile quiz question overflows horizontally: " + JSON.stringify(quizStepWidth));
+      if (browserType === chromium) await phone.screenshot({ path: "artifacts/quiz-mobile-question.jpg", type: "jpeg", quality: 65 });
       await mobile.close();
-      console.log(browserType.name() + ": desktop worlds, Event DNA, mobile menu and layout passed.");
+      console.log(browserType.name() + ": desktop worlds, Event DNA, personality quiz, mobile menu and layout passed.");
     } finally {
       await browser.close();
     }
@@ -119,3 +156,4 @@ try {
 } finally {
   server.kill();
 }
+
