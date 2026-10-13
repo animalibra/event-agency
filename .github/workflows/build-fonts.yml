@@ -1,0 +1,27 @@
+name: Package local fonts
+on:
+  push:
+    branches: [redesign/cinematic-editorial]
+    paths:
+      - scripts/build-fonts.sh
+      - .github/workflows/build-fonts.yml
+permissions:
+  contents: write
+jobs:
+  fonts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: bash scripts/build-fonts.sh
+      - name: Commit self-hosted fonts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/fonts/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add self-hosted editorial fonts"
+            git push origin HEAD:redesign/cinematic-editorial
+          fi
