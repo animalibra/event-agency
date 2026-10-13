@@ -1,7 +1,7 @@
 name: Verify redesign
 on:
   push:
-    branches: [redesign/cinematic-editorial]
+    branches: [redesign/cinematic-editorial, codex/event-personality-quiz]
   pull_request:
     branches: [main]
 jobs:
@@ -13,5 +13,10 @@ jobs:
         with:
           node-version: '22'
       - run: node --check assets/site.js
+      - run: node --check assets/quiz.js
+      - run: node --check assets/quiz-data.js
+      - run: node --check assets/quiz-scoring.js
+      - run: node tests/quiz-logic.mjs
       - run: node --check server.mjs
       - run: node tests/check-site.mjs
+
